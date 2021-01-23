@@ -1,7 +1,69 @@
 .block1 {
-	width: 900px;
-	height: 500px;
+	width: 100%;
+	height: auto;
 	background-color: #bbb;
 	padding: 0;
 	margin: 0;
 }
+.floors {
+	display: flex;
+	align-items: flex-end;
+}
+.door {
+ display: flex;
+ background-size: cover;
+ background-image: url(../img/elevator1.png);
+ margin-left: 5px;
+ width: 137px;
+ height: 200px;
+ margin-bottom: 16px;
+ }
+
+
+.right {
+	background-image: url(../img/right.png);
+	width: 68px;
+	height: 200px;
+	
+}
+.left {
+ background-image: url(../img/left.png);
+ width: 66px;
+ height: 200px;
+}
+
+
+.floors li {
+	width: 300px;
+	height: 200px;
+	border: 3px solid;
+	border-left: none;
+
+}
+.floors ul {
+	text-decoration: none;
+	margin-top: 0;
+	padding-left: 0;
+}
+
+.button-block {
+	display: flex;
+	border: 2px solid;
+	width: 420px;
+	height: 90px;
+	align-self: flex-end;
+}
+button {
+	width: 59px;
+    height: 59px;
+    font-size: 30px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 20px;
+    margin: 10px;
+    position: relative;
+    cursor: pointer;
+
+}
+
