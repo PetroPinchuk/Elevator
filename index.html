@@ -7,32 +7,35 @@
 	<title>Document</title>
 </head>
 <body>
-	<container>
 	<div class="block1">
+
 		<div class="floors">
 			<ul>
-				<li>5</li>
-				<li>4</li>
-				<li>3</li>
-				<li>2</li>
-				<li>1</li>
+				<li>5 <span id="fiveButton"><img src="img/floorButton.png"></span></li>
+				<li>4 <span id="fourButton"><img src="img/floorButton.png"></span></li>
+				<li>3 <span id="threeButton"><img src="img/floorButton.png"></span></li>
+				<li>2 <span id="twoButton"><img src="img/floorButton.png"></span></li>
+				<li>1 <span id="oneButton"><img src="img/floorButton.png"></span></li>
 			</ul>
-			<div class="door">
-		<div class="right" ></div>
-		<div class="left"></div>
-	    </div>	
-         </div>
-         <div class="button-block">
-    <button id="first" name="first">1</button>	
-    <button id="two" name="two">2</button>	
-    <button id="third" name="third">3</button>	
-    <button id="four" name="four">4</button>	
-    <button id="five" name="five">5</button>	
-    </div>
-    </div>
-    
 
-	</container>
-	
+			<div class="elevator">
+					<div class="left-door"></div>
+					<div class="right-door"></div>
+			</div>
+    </div>
+
+    <div class="button-block">
+	    <button id="first">1</button>
+	    <button id="two">2</button>
+	    <button id="third">3</button>
+	    <button id="four">4</button>
+	    <button id="five">5</button>
+
+			<button id="open-door">Open</button>
+			<button id="close-door">Close</button>
+    </div>
+
+  </div>
+	<script src="js/script.js"></script>
 </body>
 </html>
