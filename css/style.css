@@ -30,11 +30,11 @@
 .floors li {
 	width: 300px;
 	height: 200px;
-	border: 3px solid;
+	border: 3px solid black;
 	border-left: none;
 	border-right: none;
 	text-align:center;
-	font-size: xxx-large;
+	font-size: 400%;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
@@ -71,4 +71,44 @@ button {
   border-radius: 50%;
   margin: 10px;
   cursor: pointer;
+}
+.wrap{
+	width: 400px;
+	height: 400px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+}
+.display{
+	width: 250px;
+	height: 250px;
+	background-image: url("../img/metal_border.png");
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	margin-right: 1280px;
+}
+.arrow{
+	background-image: url("../img/inactive.png");
+	width: 65px;
+	height: 65px;
+	flex: 0 0 auto;
+	margin: 3px;
+}
+.number{
+	background-image: url("../img/border_for_number.png");
+	width: 65px;
+	height: 65px;
+	flex: 0 0 auto;
+  margin: 3px;
+}
+
+.number > h1{
+	text-align: center;
+	font-size: 400%;
+  margin: 0;
 }
