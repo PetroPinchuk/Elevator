@@ -34,51 +34,136 @@ document.querySelector('#close-door').onclick = function () {
 
 let elevator = document.querySelector('.elevator');
 let buttonFromPanel = document.querySelector('.button-block');
+let arrow = document.querySelector('.arrow');
+let floorsNumber = document.querySelector('.number').childNodes[0];
 
-function openTheDoor() {
+// console.log(floorsNumber);
+
+
+let first = 17;
+let second = 226;
+let third = 433;
+let four = 638;
+let five = 843;
+
+let currentFloor = 17;
+
+function openTheDoor(numberOfTheFloor) {
   document.querySelector('.right-door').style.marginLeft = '120px';
+  setTimeout(function() {
+      arrow.style.backgroundImage = 'url("./img/inactive.png")';
+      if (numberOfTheFloor == first) {
+        floorsNumber.innerText = '1';
+      } else if (numberOfTheFloor == second) {
+        floorsNumber.innerText = '2';
+      } else if (numberOfTheFloor == third) {
+        floorsNumber.innerText = '3';
+      } else if (numberOfTheFloor == four) {
+        floorsNumber.innerText = '4';
+      } else if (numberOfTheFloor == five) {
+        floorsNumber.innerText = '5';
+      }
+  }, 2000);
   return true;
 }
 function closeTheDoor() {
   document.querySelector('.right-door').style.marginLeft = '0';
   return true;
 }
-function moveUpMoveDown(x) {
-  elevator.style.marginBottom = x + 'px';
+function moveUpMoveDown(pixels) {
+  elevator.style.marginBottom = pixels + 'px';
+  currentFloor = pixels;
+  return pixels;
 }
+function activeDownArrow() {
+  arrow.style.backgroundImage = 'url("./img/active_down.png")';
+
+}
+function activeUpArrow() {
+  arrow.style.backgroundImage = 'url("./img/active_up.png")';
+}
+
+// let refreshIntervalId = setInterval(DownArrowAnimation, 1000);
+//
+// function DownArrowAnimation() {
+//   activeDownArrow();
+//   setTimeout(clearInterval1, 2000);
+// }
+//
+// function clearInterval1() {
+//     clearInterval(refreshIntervalId);
+// }
+
+
 
 
 buttonFromPanel.onclick = function (e) {
   console.log(e.target.id);
+  // console.log(moveUpMoveDown);
   if (e.target.id == 'first') {
     closeTheDoor();
+    if (currentFloor > first) {
+      activeDownArrow();
+    } else if (currentFloor == first) {
+      activeUpArrow();
+    }
     setTimeout(function() {
-        moveUpMoveDown(17);
+        moveUpMoveDown(first);
     }, 2000);
-    setTimeout(openTheDoor, 4000);
+    setTimeout(function () {
+      openTheDoor(first);
+    }, 4000);
   } else if (e.target.id == 'two') {
     closeTheDoor();
+    if (currentFloor > second) {
+      activeDownArrow();
+    } else if (currentFloor < second) {
+      activeUpArrow();
+    }
     setTimeout(function() {
-        moveUpMoveDown(226);
+        moveUpMoveDown(second);
     }, 2000);
-    setTimeout(openTheDoor, 4000);
+    setTimeout(function () {
+      openTheDoor(second);
+    }, 4000);
   } else if (e.target.id == 'third') {
     closeTheDoor();
+    if (currentFloor > third) {
+      activeDownArrow();
+    } else if (currentFloor < third) {
+      activeUpArrow();
+    }
     setTimeout(function() {
-        moveUpMoveDown(433);
+        moveUpMoveDown(third);
     }, 2000);
-    setTimeout(openTheDoor, 4000);
+    setTimeout(function () {
+      openTheDoor(third);
+    }, 4000);
   } else if (e.target.id == 'four') {
     closeTheDoor();
+    if (currentFloor > four) {
+      activeDownArrow();
+    } else if (currentFloor < four) {
+      activeUpArrow();
+    }
     setTimeout(function() {
-        moveUpMoveDown(638);
+        moveUpMoveDown(four);
     }, 2000);
-    setTimeout(openTheDoor, 4000);
+    setTimeout(function () {
+      openTheDoor(four);
+    }, 4000);
   } else if (e.target.id == 'five') {
     closeTheDoor();
+    if (currentFloor == five) {
+      activeDownArrow();
+    } else if (currentFloor < five) {
+      activeUpArrow();
+    }
     setTimeout(function() {
-        moveUpMoveDown(843);
+        moveUpMoveDown(five);
     }, 2000);
-    setTimeout(openTheDoor, 4000);
+    setTimeout(function () {
+      openTheDoor(five);
+    }, 4000);
   }
 };
