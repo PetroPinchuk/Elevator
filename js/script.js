@@ -1,13 +1,7 @@
 // ------------Відкривання дверей--------------
-document.querySelector('#open-door').onclick = function () {
-  document.querySelector('.right-door').style.marginLeft = '120px';
-}
+document.querySelector('#open-door').onclick = openTheDoor;
 // ------------Закривання дверей--------------
-document.querySelector('#close-door').onclick = function () {
-  document.querySelector('.right-door').style.marginLeft = '0';
-}
-
-// ----------------------------------------------------------------
+document.querySelector('#close-door').onclick = closeTheDoor;
 
 let elevator = document.querySelector('.elevator');
 let buttonFromPanel = document.querySelector('.button-block');
@@ -20,10 +14,12 @@ let third = 416;
 let four = 621;
 let five = 826;
 let currentFloor = 0;
+let interval;
 
 function openTheDoor(numberOfTheFloor) {
   document.querySelector('.right-door').style.marginLeft = '120px';
       arrow.style.backgroundImage = 'url("./img/inactive.png")';
+      clearInterval(interval);
       if (numberOfTheFloor == first) {
         floorsNumber.innerText = '1';
       } else if (numberOfTheFloor == second) {
@@ -36,29 +32,46 @@ function openTheDoor(numberOfTheFloor) {
         floorsNumber.innerText = '5';
       }
   return true;
-}
+};
+
 function closeTheDoor() {
   document.querySelector('.right-door').style.marginLeft = '0';
   return true;
-}
+};
+
 function moveUpMoveDown(pixels) {
   elevator.style.marginBottom = pixels + 'px';
   currentFloor = pixels;
   return pixels;
-}
+};
+
 function activeDownArrow() {
   arrow.style.backgroundImage = 'url("./img/active_down.png")';
-}
+};
+
 function activeUpArrow() {
   arrow.style.backgroundImage = 'url("./img/active_up.png")';
-}
+};
+
+function activeBlackArrow() {
+  arrow.style.backgroundImage = 'url("./img/inactive.png")';
+};
+
+function arrowAnimation(arrow) {
+  arrow();
+  setTimeout(activeBlackArrow, 250);
+};
 
 function moveElevator(floor) {
     closeTheDoor();
     if (currentFloor > floor) {
-      activeDownArrow();
+      interval = setInterval(function () {
+        arrowAnimation(activeDownArrow);
+      }, 1000);
     } else if (currentFloor < floor) {
-      activeUpArrow();
+      interval = setInterval(function () {
+        arrowAnimation(activeUpArrow);
+      }, 1000);
     }
     setTimeout(function() {
         moveUpMoveDown(floor);
@@ -66,7 +79,7 @@ function moveElevator(floor) {
     setTimeout(function () {
       openTheDoor(floor);
     }, 4000);
-}
+};
 
 buttonFromPanel.onclick = function (e) {
   let tId = e.target.id;

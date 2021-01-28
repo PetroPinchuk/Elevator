@@ -62,7 +62,8 @@ img{
   font-size: 30px;
   border-radius: 50%;
   margin: 10px;
-  cursor: pointer;
+  cursor: pointer; 
+  
 }
 .wrap{
 	width: 400px;
