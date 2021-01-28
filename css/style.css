@@ -2,6 +2,7 @@
 	width: 100%;
 	height: auto;
 	display: flex;
+	border-bottom: 3px solid black;
 }
 .floors {
 	display: flex;
@@ -14,6 +15,7 @@
   display: flex;
   transition: all ease 2s;
 	margin-left: 1px;
+	margin-bottom: 3px;
 }
 .right-door{
   background-image: url("../img/right.png");
@@ -62,8 +64,8 @@ img{
   font-size: 30px;
   border-radius: 50%;
   margin: 10px;
-  cursor: pointer; 
-  
+  cursor: pointer;
+
 }
 .wrap{
 	width: 400px;
