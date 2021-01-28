@@ -1,25 +1,3 @@
-// ------------1 поверх--------------
-document.querySelector('#oneButton').onclick = function () {
-  document.querySelector('.elevator').style.marginBottom = 17 + 'px';
-}
-// ------------2 поверх--------------
-document.querySelector('#twoButton').onclick = function () {
-  document.querySelector('.elevator').style.marginBottom = 226 + 'px';
-}
-// ------------3 поверх--------------
-document.querySelector('#threeButton').onclick = function () {
-  document.querySelector('.elevator').style.marginBottom = 433 + 'px';
-}
-// ------------4 поверх--------------
-document.querySelector('#fourButton').onclick = function () {
-  document.querySelector('.elevator').style.marginBottom = 638 + 'px';
-}
-// ------------5 поверх--------------
-document.querySelector('#fiveButton').onclick = function () {
-  document.querySelector('.elevator').style.marginBottom = 843 + 'px';
-}
-
-
 // ------------Відкривання дверей--------------
 document.querySelector('#open-door').onclick = function () {
   document.querySelector('.right-door').style.marginLeft = '120px';
@@ -31,26 +9,20 @@ document.querySelector('#close-door').onclick = function () {
 
 // ----------------------------------------------------------------
 
-
 let elevator = document.querySelector('.elevator');
 let buttonFromPanel = document.querySelector('.button-block');
 let arrow = document.querySelector('.arrow');
 let floorsNumber = document.querySelector('.number').childNodes[0];
-
-// console.log(floorsNumber);
-
-
-let first = 17;
-let second = 226;
-let third = 433;
-let four = 638;
-let five = 843;
-
-let currentFloor = 17;
+let floorsButton = document.querySelector('.floorButtons');
+let first = 0;
+let second = 209;
+let third = 416;
+let four = 621;
+let five = 826;
+let currentFloor = 0;
 
 function openTheDoor(numberOfTheFloor) {
   document.querySelector('.right-door').style.marginLeft = '120px';
-  setTimeout(function() {
       arrow.style.backgroundImage = 'url("./img/inactive.png")';
       if (numberOfTheFloor == first) {
         floorsNumber.innerText = '1';
@@ -63,7 +35,6 @@ function openTheDoor(numberOfTheFloor) {
       } else if (numberOfTheFloor == five) {
         floorsNumber.innerText = '5';
       }
-  }, 2000);
   return true;
 }
 function closeTheDoor() {
@@ -77,93 +48,52 @@ function moveUpMoveDown(pixels) {
 }
 function activeDownArrow() {
   arrow.style.backgroundImage = 'url("./img/active_down.png")';
-
 }
 function activeUpArrow() {
   arrow.style.backgroundImage = 'url("./img/active_up.png")';
 }
 
-// let refreshIntervalId = setInterval(DownArrowAnimation, 1000);
-//
-// function DownArrowAnimation() {
-//   activeDownArrow();
-//   setTimeout(clearInterval1, 2000);
-// }
-//
-// function clearInterval1() {
-//     clearInterval(refreshIntervalId);
-// }
-
-
-
+function moveElevator(floor) {
+    closeTheDoor();
+    if (currentFloor > floor) {
+      activeDownArrow();
+    } else if (currentFloor < floor) {
+      activeUpArrow();
+    }
+    setTimeout(function() {
+        moveUpMoveDown(floor);
+    }, 2000);
+    setTimeout(function () {
+      openTheDoor(floor);
+    }, 4000);
+}
 
 buttonFromPanel.onclick = function (e) {
-  console.log(e.target.id);
-  // console.log(moveUpMoveDown);
-  if (e.target.id == 'first') {
-    closeTheDoor();
-    if (currentFloor > first) {
-      activeDownArrow();
-    } else if (currentFloor == first) {
-      activeUpArrow();
-    }
-    setTimeout(function() {
-        moveUpMoveDown(first);
-    }, 2000);
-    setTimeout(function () {
-      openTheDoor(first);
-    }, 4000);
-  } else if (e.target.id == 'two') {
-    closeTheDoor();
-    if (currentFloor > second) {
-      activeDownArrow();
-    } else if (currentFloor < second) {
-      activeUpArrow();
-    }
-    setTimeout(function() {
-        moveUpMoveDown(second);
-    }, 2000);
-    setTimeout(function () {
-      openTheDoor(second);
-    }, 4000);
-  } else if (e.target.id == 'third') {
-    closeTheDoor();
-    if (currentFloor > third) {
-      activeDownArrow();
-    } else if (currentFloor < third) {
-      activeUpArrow();
-    }
-    setTimeout(function() {
-        moveUpMoveDown(third);
-    }, 2000);
-    setTimeout(function () {
-      openTheDoor(third);
-    }, 4000);
-  } else if (e.target.id == 'four') {
-    closeTheDoor();
-    if (currentFloor > four) {
-      activeDownArrow();
-    } else if (currentFloor < four) {
-      activeUpArrow();
-    }
-    setTimeout(function() {
-        moveUpMoveDown(four);
-    }, 2000);
-    setTimeout(function () {
-      openTheDoor(four);
-    }, 4000);
-  } else if (e.target.id == 'five') {
-    closeTheDoor();
-    if (currentFloor == five) {
-      activeDownArrow();
-    } else if (currentFloor < five) {
-      activeUpArrow();
-    }
-    setTimeout(function() {
-        moveUpMoveDown(five);
-    }, 2000);
-    setTimeout(function () {
-      openTheDoor(five);
-    }, 4000);
+  let tId = e.target.id;
+  if (tId == 'first') {
+    moveElevator(first);
+  } else if (tId == 'two') {
+    moveElevator(second);
+  } else if (tId == 'third') {
+    moveElevator(third);
+  } else if (tId == 'four') {
+    moveElevator(four);
+  } else if (tId == 'five') {
+    moveElevator(five);
+  }
+};
+
+floorsButton.onclick = function (e) {
+  let tId = e.target.id;
+  if (tId == 'oneButton') {
+    moveElevator(first);
+  } else if (tId == 'twoButton') {
+    moveElevator(second);
+  } else if (tId == 'threeButton') {
+    moveElevator(third);
+  } else if (tId == 'fourButton') {
+    moveElevator(four);
+  } else if (tId == 'fiveButton') {
+    moveElevator(five);
   }
 };
