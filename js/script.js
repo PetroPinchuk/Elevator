@@ -29,7 +29,7 @@ document.querySelector('#close-door').onclick = function () {
   document.querySelector('.right-door').style.marginLeft = '0';
 }
 
-// ----------------------------------------------------------------
+// // ----------------------------------------------------------------
 
 
 let elevator = document.querySelector('.elevator');
@@ -82,17 +82,16 @@ function activeDownArrow() {
 function activeUpArrow() {
   arrow.style.backgroundImage = 'url("./img/active_up.png")';
 }
+function activeBlackArrow() {
+ arrow.style.backgroundImage='url("./img/inactive.png")';
+}
 
-// let refreshIntervalId = setInterval(DownArrowAnimation, 1000);
-//
-// function DownArrowAnimation() {
-//   activeDownArrow();
-//   setTimeout(clearInterval1, 2000);
-// }
-//
-// function clearInterval1() {
-//     clearInterval(refreshIntervalId);
-// }
+
+function DownArrowAnimation() {
+  activeDownArrow();
+  setTimeout(activeBlackArrow, 500);
+}
+setInterval(DownArrowAnimation,1000);
 
 
 
