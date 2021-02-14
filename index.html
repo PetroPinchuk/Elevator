@@ -10,30 +10,20 @@
 	<div class="block1">
 
 		<div class="floors">
-			<div class="floorButtons">
-				<div class="floorButton">5<img id="fiveButton" src="img/floorButton.png"></div>
-				<div class="floorButton">4<img id="fourButton" src="img/floorButton.png"></div>
-				<div class="floorButton">3<img id="threeButton" src="img/floorButton.png"></div>
-				<div class="floorButton">2<img id="twoButton" src="img/floorButton.png"></div>
-				<div class="floorButton">1<img id="oneButton" src="img/floorButton.png"></div>
-			</div>
+			<div class="renderingFloors"></div>
 
-			<div class="elevator">
-					<div class="left-door"></div>
-					<div class="right-door"></div>
+			<div class="block2">
+				<div class="elevator">
+					<img id="elevator-img" src="./img/elevator.png">
+					<div class="door">
+						<img id="left-door-img" src="./img/left.png">
+						<img id="right-door-img" src="./img/right.png">
+					</div>
+				</div>
 			</div>
 		</div>
 
-    <div class="button-block">
-	    <button id="first">1</button>
-	    <button id="two">2</button>
-	    <button id="third">3</button>
-	    <button id="four">4</button>
-	    <button id="five">5</button>
-
-			<button id="open-door">Open</button>
-			<button id="close-door">Close</button>
-    </div>
+    <div class="button-block"></div>
 
 		<div class="wrap">
 			<div class="display">
@@ -42,6 +32,7 @@
 			</div>
 		</div>
   </div>
+	<script src="js/floors_buttons_config.js"></script>
 	<script src="js/script.js"></script>
 </body>
 </html>

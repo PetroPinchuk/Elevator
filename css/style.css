@@ -1,41 +1,47 @@
+body, html{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
 .block1 {
 	width: 100%;
-	height: auto;
+	height: 100%;
 	display: flex;
 	border-bottom: 3px solid black;
 }
 .floors {
 	display: flex;
-	align-items: flex-end;
+	height: 100%;
+}
+.block2{
+	/* border: 1px solid; */
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 }
 .elevator{
-  width: 132px;
-  height: 200px;
-  background-image: url("../img/elevator.png");
-  display: flex;
+	display: flex;
+  justify-content: center;
   transition: all ease 2s;
-	margin-left: 1px;
-	margin-bottom: 3px;
+  margin-left: 1px;
+	overflow: hidden;
+	position: absolute;
 }
-.right-door{
-  background-image: url("../img/right.png");
-  width: 69px;
-  height: 201px;
+.door{
+	position: absolute;
+	display: flex;
+}
+#right-door-img{
   transition: all ease 2s;
 }
-.left-door{
-  background-image: url("../img/left.png");
-  width: 69px;
-  height: 201px;
-}
-.floorButton {
+
+.floor {
 	width: 300px;
-	height: 200px;
 	border: 3px solid black;
 	border-left: none;
 	border-right: none;
 	text-align:center;
-	font-size: 400%;
+	font-size: 1em;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
@@ -43,9 +49,19 @@
 	align-content: flex-end;
 	background-image: url("../img/brick.jpg");
 }
-.floorButtons{
+.renderingFloors{
 	margin-top: 0;
 	padding-left: 0;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: start;
+	align-items: auto;
+	align-content: start;
+}
+.btn-call-elevator{
+	flex: 1 0 auto;
 }
 img{
 	cursor: pointer;
@@ -57,15 +73,14 @@ img{
 	align-self: flex-end;
 	justify-content: space-around;
 	padding: 10px;
-	margin-left: 100px;
+	margin-left: 200px;
 }
-.button-block > button {
+.panBut{
 	width: 100px;
   font-size: 30px;
   border-radius: 50%;
   margin: 10px;
   cursor: pointer;
-
 }
 .wrap{
 	width: 400px;
