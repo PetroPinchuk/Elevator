@@ -7,7 +7,7 @@ body, html{
 	width: 100%;
 	height: 100%;
 	display: flex;
-	border-bottom: 3px solid black;
+	border: 3px solid black;
 	align-items: flex-end;
 }
 .floors {
@@ -15,7 +15,7 @@ body, html{
 	height: 100%;
 }
 .block2{
-	/* border: 1px solid; */
+	border: 1px solid;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
@@ -44,7 +44,6 @@ body, html{
 	font-size: 1em;
 	display: flex;
 	flex-wrap: wrap;
-	/* flex-direction: column; */
 	justify-content: space-between;
 	align-content: center;
 	background-image: url(../img/brick.jpg);
@@ -74,14 +73,31 @@ body, html{
 img{
 	cursor: pointer;
 }
+.user-interface{
+	height: 100%;
+	width: auto;
+	margin-left: 127px;
+	border: 1px solid;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: auto;
+	align-content: space-around;
+	flex: 0 0 auto;
+}
 .button-block {
 	display: inline-block;
 	width: auto;
+<<<<<<< HEAD
 	height: auto;
 	align-self: flex-end;
 	justify-content: space-around;
 	padding: 10px;
 	margin-left: 200px;
+=======
+	height: 120px;
+	flex: 0 0 auto;
+>>>>>>> 24d56475560645bef5899f2fdae2b03f8b257282
 }
 .panBut{
 	width: 80px;
@@ -91,6 +107,7 @@ img{
 	margin: 10px;
 	cursor: pointer;
 }
+<<<<<<< HEAD
 .wrap{
 	position: fixed;
     width: 400px;
@@ -99,6 +116,8 @@ img{
     margin-left: 800px;
     display: block;
 }
+=======
+>>>>>>> 24d56475560645bef5899f2fdae2b03f8b257282
 .display{
 	width: 250px;
 	height: 250px;
@@ -108,8 +127,11 @@ img{
 	flex-direction: column;
 	justify-content: center;
 	align-content: center;
-	margin-right: 1280px;
-	margin-bottom: 700px;
+	flex: 0 0 auto;
+}
+.display-wrap{
+	display: flex;
+	justify-content: center;
 }
 .arrow{
 	background-image: url("../img/inactive.png");
@@ -156,5 +178,5 @@ img{
 	display: flex;
 	flex-direction: column;
 	height:1030px;
-     align-items:auto;
+  align-items:auto;
 }
