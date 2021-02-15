@@ -75,29 +75,29 @@ img{
 	cursor: pointer;
 }
 .button-block {
-	display: flex;
+	display: inline-block;
 	width: auto;
-	height: 120px;
+	height: auto;
 	align-self: flex-end;
 	justify-content: space-around;
 	padding: 10px;
 	margin-left: 200px;
 }
 .panBut{
-	width: 100px;
-  font-size: 30px;
-  border-radius: 50%;
-  margin: 10px;
-  cursor: pointer;
+	width: 80px;
+	height: 80px;
+	font-size: 30px;
+	border-radius: 50%;
+	margin: 10px;
+	cursor: pointer;
 }
 .wrap{
-	width: 400px;
-	height: 1000px;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-	justify-content: center;
-	align-content: center;
+	position: fixed;
+    width: 400px;
+    height: 400px;
+    margin-bottom: 400px;
+    margin-left: 800px;
+    display: block;
 }
 .display{
 	width: 250px;
