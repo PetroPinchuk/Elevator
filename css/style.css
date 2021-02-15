@@ -37,18 +37,25 @@ body, html{
 }
 
 .floor {
-	width: 300px;
-	border: 3px solid black;
-	border-left: none;
-	border-right: none;
-	text-align:center;
+	width: 200px;
+	height: auto;
+	border-top: 3px solid black;
+	text-align: center;
 	font-size: 1em;
 	display: flex;
 	flex-wrap: wrap;
-	flex-direction: column;
-	justify-content: space-around;
-	align-content: flex-end;
-	background-image: url("../img/brick.jpg");
+	/* flex-direction: column; */
+	justify-content: space-between;
+	align-content: center;
+	background-image: url(../img/brick.jpg);
+	padding: 0 20px;
+}
+.floor > img{
+	height: 1em;
+}
+
+.floor > span{
+
 }
 .renderingFloors{
 	margin-top: 0;
@@ -149,6 +156,5 @@ img{
 	display: flex;
 	flex-direction: column;
 	height:1030px;
-     align-items:auto; 
+     align-items:auto;
 }
-
