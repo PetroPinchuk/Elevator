@@ -99,14 +99,18 @@ block1.addEventListener('click', function (e) {
   }
 });
 
-
+// <span>${i}</span>
+// <img class = 'button${i}' data-floor='${i}' src="img/floorButton.png">
 // -----------------------------------------------------------
 
 function renderFloors () {
   console.log('renderFloors');
   let floorsTemplate = ``;
   for (let i = config.floorsCount; i >= 1 ; i--){
-  floorsTemplate +=  `<div id='floor_${i}' class="floor btn-call-elevator">${i}<img class = 'button${i}' data-floor='${i}' src="img/floorButton.png"></div>`
+  floorsTemplate +=  `<div id='floor_${i}' class="floor btn-call-elevator">
+                          <span>${i}</span>
+                          <img class = 'button${i}' data-floor='${i}' src="img/floorButton.png">
+                      </div>`
   };
   document.querySelector('.renderingFloors').innerHTML = floorsTemplate;
 }
