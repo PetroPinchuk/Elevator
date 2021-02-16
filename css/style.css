@@ -15,18 +15,19 @@ body, html{
 	height: 100%;
 }
 .block2{
-	border: 1px solid;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
+	align-items:auto;
 }
 .elevator{
 	display: flex;
-  justify-content: center;
-  transition: all ease 2s;
-  margin-left: 1px;
+	justify-content: center;
+	transition: all ease 2s;
+	margin-left: 1px;
 	overflow: hidden;
-	position: absolute;
+	position: inherit;
 }
 .door{
 	position: absolute;
@@ -76,7 +77,6 @@ img{
 .user-interface{
 	height: 100%;
 	width: 100%;
-	margin-left: 127px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -89,13 +89,6 @@ img{
 	height: auto;
 	align-items: auto;
 	text-align: center;
-}
-.panBut{
-	width: 52px;
-	font-size: 2em;
-	margin: 16px;
-	cursor: pointer;
-	border-radius: 25px;
 }
 .panBut{
 	width: 80px;
@@ -140,14 +133,10 @@ img{
   margin: 0;
 }
 .left-ropes , .right-ropes {
-	display: flex;
-	width: 4px;
+	width: 0.2em;
 	height: 100%;
 	background-image: url(../img/ropes.jpg);
-  background-repeat: repeat;
-  border: 1px solid;
-  flex-wrap: wrap;
-  align-self: flex-start;
+	background-repeat: repeat;
 }
 .left-ropes {
 	margin-right: 20px;
@@ -159,10 +148,6 @@ img{
 	height:100%;
 	border-top:3px solid;
 }
-
-.elev {
-	display: flex;
-	flex-direction: column;
-	height:1030px;
-  align-items:auto;
+.elev-wrap{
+	position: relative;
 }
