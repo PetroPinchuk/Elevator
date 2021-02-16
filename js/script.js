@@ -1,6 +1,7 @@
 renderFloors();
 renderButtons();
 let elevator = document.querySelector('.elevator');
+let elevatorWrap = document.querySelector('.elev-wrap');
 let elevatorImg = document.querySelector('#elevator-img');
 let leftDoorImg = document.querySelector('#left-door-img');
 let rightDoorImg = document.querySelector('#right-door-img');
@@ -8,7 +9,6 @@ let floor = document.getElementById('floor_1');
 let floorHeight = getComputedStyle(floor).height;
 let floorHeightNumber = parseInt(floorHeight);
 let floorWidth = floorHeightNumber / 1.52;
-console.log(floorWidth);
 let buttonFromPanel = document.querySelector('.button-block');
 let btnCallElevator = document.querySelectorAll('.btn-call-elevator');
 let block1 = document.querySelector('.block1');
@@ -28,32 +28,29 @@ function changeElevHeight() {
 function openTheDoor() {
   rightDoorImg.style.marginLeft = floorWidth + 'px';
   console.log('openTheDoor');
+  arrow.style.backgroundImage = 'url("./img/inactive.png")';
+        // clearInterval(interval);
+        // for (let i = 0; i < floors.length; i++) {
+        //   let coord = floors[i].coordinateOfStop;
+        //   if (numberOfTheFloor == coord) {
+        //     // floorsNumber.innerText = floors[i].numberOfFloor;
+        //     console.log(floors[i].numberOfFloor);
+        //   }
+        // }
 }
-openTheDoor();
-// function openTheDoor(numberOfTheFloor) {
-//   rightDoorImg.style.marginLeft = floorWidth + 'px';
-//       arrow.style.backgroundImage = 'url("./img/inactive.png")';
-//       clearInterval(interval);
-//       for (let i = 0; i < floors.length; i++) {
-//         let coord = floors[i].coordinateOfStop;
-//         if (numberOfTheFloor == coord) {
-//           // floorsNumber.innerText = floors[i].numberOfFloor;
-//           console.log(floors[i].numberOfFloor);
-//         }
-//       }
-// }
-
 
 function closeTheDoor() {
-  document.querySelector('.right-door').style.marginLeft = '0';
+  console.log('closeTheDoor');
+  rightDoorImg.style.marginLeft = '0';
+
   return true;
 }
 
 // -----------------------------------------------------------
-function moveUpMoveDown(pixels) {
-  elevator.style.marginBottom = pixels + 'px';
-  currentFloor = pixels;
-  return pixels;
+function moveUpMoveDown(floorNum) {
+  elevatorWrap.style.marginBottom = floorHeightNumber*(floorNum-1) - 1 + 'px';
+  currentFloor = floorNum;
+  return floorNum;
 }
 // -----------------------------------------------------------
 function activeDownArrow() {
@@ -74,15 +71,15 @@ function arrowAnimation(arrow) {
 function moveElevator(floor) {
   console.log('moveElevator');
     closeTheDoor();
-    if (currentFloor > floor) {
-      interval = setInterval(function () {
-        arrowAnimation(activeDownArrow);
-      }, 1000);
-    } else if (currentFloor < floor) {
-      interval = setInterval(function () {
-        arrowAnimation(activeUpArrow);
-      }, 1000);
-    }
+    // if (currentFloor > floor) {
+    //   interval = setInterval(function () {
+    //     arrowAnimation(activeDownArrow);
+    //   }, 1000);
+    // } else if (currentFloor < floor) {
+    //   interval = setInterval(function () {
+    //     arrowAnimation(activeUpArrow);
+    //   }, 1000);
+    // }
     setTimeout(function() {
         moveUpMoveDown(floor);
     }, 2000);
@@ -93,15 +90,13 @@ function moveElevator(floor) {
 
 // -----------------------------------------------------------
 
-block1.addEventListener('click', function (e) {
+buttonFromPanel.addEventListener('click', function (e) {
+  console.log(e.target.dataset.floor);
   if (e.target.dataset.floor) {
     moveElevator(e.target.dataset.floor);
   }
 });
 
-// <span>${i}</span>
-// <img class = 'button${i}' data-floor='${i}' src="img/floorButton.png">
-// -----------------------------------------------------------
 
 function renderFloors () {
   console.log('renderFloors');
