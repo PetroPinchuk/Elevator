@@ -30,7 +30,6 @@ function openTheDoor(floor) {
   console.log('openTheDoor');
   arrow.style.backgroundImage = 'url("./img/inactive.png")';
         clearInterval(interval);
-        // floorsNumber.innerText = floor;
 }
 
 function closeTheDoor() {
@@ -58,6 +57,7 @@ function activeBlackArrow() {
 function arrowAnimation(arrow) {
   arrow();
   setTimeout(activeBlackArrow, 250);
+  console.log(currentFloor);
 }
 // -----------------------------------------------------------
 
@@ -80,6 +80,9 @@ function moveElevator(floor) {
       openTheDoor(floor);
       floorsNumber.innerText = floor;
     }, 4000);
+    setTimeout(function() {
+        closeTheDoor();
+    }, 10000);
 }
 
 // -----------------------------------------------------------
@@ -90,6 +93,7 @@ block1.addEventListener('click', function (e) {
     moveElevator(e.target.dataset.floor);
   }
 });
+
 
 
 function renderFloors () {
