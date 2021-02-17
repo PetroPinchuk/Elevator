@@ -25,24 +25,17 @@ function changeElevHeight() {
 }
 // ----------------------------------------------------------------
 
-function openTheDoor() {
+function openTheDoor(floor) {
   rightDoorImg.style.marginLeft = floorWidth + 'px';
   console.log('openTheDoor');
   arrow.style.backgroundImage = 'url("./img/inactive.png")';
-        // clearInterval(interval);
-        // for (let i = 0; i < floors.length; i++) {
-        //   let coord = floors[i].coordinateOfStop;
-        //   if (numberOfTheFloor == coord) {
-        //     // floorsNumber.innerText = floors[i].numberOfFloor;
-        //     console.log(floors[i].numberOfFloor);
-        //   }
-        // }
+        clearInterval(interval);
+        // floorsNumber.innerText = floor;
 }
 
 function closeTheDoor() {
   console.log('closeTheDoor');
   rightDoorImg.style.marginLeft = '0';
-
   return true;
 }
 
@@ -71,26 +64,27 @@ function arrowAnimation(arrow) {
 function moveElevator(floor) {
   console.log('moveElevator');
     closeTheDoor();
-    // if (currentFloor > floor) {
-    //   interval = setInterval(function () {
-    //     arrowAnimation(activeDownArrow);
-    //   }, 1000);
-    // } else if (currentFloor < floor) {
-    //   interval = setInterval(function () {
-    //     arrowAnimation(activeUpArrow);
-    //   }, 1000);
-    // }
+    if (currentFloor > floor) {
+      interval = setInterval(function () {
+        arrowAnimation(activeDownArrow);
+      }, 1000);
+    } else if (currentFloor < floor) {
+      interval = setInterval(function () {
+        arrowAnimation(activeUpArrow);
+      }, 1000);
+    }
     setTimeout(function() {
         moveUpMoveDown(floor);
     }, 2000);
     setTimeout(function () {
       openTheDoor(floor);
+      floorsNumber.innerText = floor;
     }, 4000);
 }
 
 // -----------------------------------------------------------
 
-buttonFromPanel.addEventListener('click', function (e) {
+block1.addEventListener('click', function (e) {
   console.log(e.target.dataset.floor);
   if (e.target.dataset.floor) {
     moveElevator(e.target.dataset.floor);
