@@ -15,6 +15,8 @@ let block1 = document.querySelector('.block1');
 let arrow = document.querySelector('.arrow');
 let floorsNumber = document.querySelector('.number').childNodes[0];
 let floorsButton = document.querySelector('.renderingFloors');
+let floorsCount = document.querySelector('#floors_count').value;
+
 let currentFloor = 0;
 let interval;
 
