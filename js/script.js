@@ -83,6 +83,9 @@ function moveElevator(floor) {
     setTimeout(function() {
         closeTheDoor();
     }, 10000);
+    setTimeout(function() {
+        moveUpMoveDown(1);
+    }, 15000);
 }
 
 // -----------------------------------------------------------
