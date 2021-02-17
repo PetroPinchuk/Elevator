@@ -1,3 +1,4 @@
+voiceScript();
 renderFloors();
 renderButtons();
 let elevator = document.querySelector('.elevator');
@@ -104,7 +105,7 @@ block1.addEventListener('click', function (e) {
 function renderFloors () {
   console.log('renderFloors');
   let floorsTemplate = ``;
-  for (let i = config.floorsCount; i >= 1 ; i--){
+  for (let i = configFloors.floorsCount; i >= 1 ; i--){
   floorsTemplate +=  `<div id='floor_${i}' class="floor btn-call-elevator">
                           <span>${i}</span>
                           <img class = 'button${i}' data-floor='${i}' src="img/floorButton.png">
@@ -116,8 +117,17 @@ function renderFloors () {
 function renderButtons () {
   console.log('renderButtons');
   let buttonsTemplate = ``;
-  for (let i = 1; i <= config.floorsCount; i++){
+  for (let i = 1; i <= configFloors.floorsCount; i++){
   buttonsTemplate +=  `<button class = 'panBut btn-call-elevator' data-floor='${i}'>${i}</button>`
   };
   document.querySelector('.button-block').innerHTML = buttonsTemplate;
 }
+
+// --------------------- voice API -------------------------
+function voiceScript() {
+  let voiceScript = document.createElement('script');
+voiceScript.setAttribute('src',"https://code.responsivevoice.org/responsivevoice.js?key=" + apiConfig.key);
+document.head.appendChild(voiceScript);
+ } 
+
+// responsiveVoice.speak("Обережно Назік", "Ukrainian Female");
